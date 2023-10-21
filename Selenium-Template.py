@@ -7,6 +7,7 @@ from datetime import datetime as dt
 # import config as env
 from general import GeneralUtil as gen_util
 from selenium import webdriver
+
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 # level = logging.INFO
@@ -94,29 +95,44 @@ def main():
         time.sleep(3)
 
         # Select input box
-        textbox = driver.find_elements_by_xpath(
-            '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input'
-        )
+        textbox = driver.find_elements(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
         for box in textbox:
             box.send_keys(student_id)
-
+        
         # Kind of attendance
-        attendance = driver.find_element_by_xpath(
-            "/html/body/div/div[3]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[3]/label/div/div[1]/div/div[3]/div"
-        )
+        attendance = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[3]/label/div/div[1]/div/div[3]/div')
         attendance.click()
-
+        
         # Duration of attendance
-        duration = driver.find_element_by_xpath(
-            "/html/body/div/div[3]/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[2]/label/div/div[1]/div/div[3]/div"
-        )
+        duration = driver.find_element(By.XPATH, '/html/body/div/div/3/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[2]/label/div/div[1]/div/div[3]/div')
         duration.click()
-
-        # click on submit button
-        submit = driver.find_element_by_xpath(
-            "/html/body/div/div[3]/form/div[2]/div/div[3]/div[1]/div[1]/div/span/span"
-        )
+        
+        # Click on submit button
+        submit = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[3]/div[1]/div[1]/div/span/span')
         submit.click()
+        # textbox = driver.find_elements_by_xpath(
+        #     '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input'
+        # )
+        # for box in textbox:
+        #     box.send_keys(student_id)
+
+        # # Kind of attendance
+        # attendance = driver.find_element_by_xpath(
+        #     "/html/body/div/div[3]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[3]/label/div/div[1]/div/div[3]/div"
+        # )
+        # attendance.click()
+
+        # # Duration of attendance
+        # duration = driver.find_element_by_xpath(
+        #     "/html/body/div/div[3]/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[2]/label/div/div[1]/div/div[3]/div"
+        # )
+        # duration.click()
+
+        # # click on submit button
+        # submit = driver.find_element_by_xpath(
+        #     "/html/body/div/div[3]/form/div[2]/div/div[3]/div[1]/div[1]/div/span/span"
+        # )
+        # submit.click()
 
         # close the window
         logging.info("Successfully submitted form\n")
