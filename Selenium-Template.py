@@ -4,7 +4,7 @@
 import logging
 import time
 from datetime import datetime as dt
-import config as env
+# import config as env
 from general import GeneralUtil as gen_util
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
