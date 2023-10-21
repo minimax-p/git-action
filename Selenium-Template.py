@@ -64,8 +64,28 @@ def main():
         """
         logging.info(f"Filling out form for {student_id} with {reference_name} as reference")
         # Open URL
-        service = Service(executable_path=f"{env.ROOT_DIR}/driver/chromedriver")
-        driver = webdriver.Chrome(service=service, options=chrome_options)
+        chrome_options = webdriver.ChromeOptions()    
+        # Add your options as needed    
+        options = [
+          # Define window size here
+           "--window-size=1200,1200",
+            "--ignore-certificate-errors"
+         
+            #"--headless",
+            #"--disable-gpu",
+            #"--window-size=1920,1200",
+            #"--ignore-certificate-errors",
+            #"--disable-extensions",
+            #"--no-sandbox",
+            #"--disable-dev-shm-usage",
+            #'--remote-debugging-port=9222'
+        ]
+        
+        for option in options:
+            chrome_options.add_argument(option)
+        
+            
+        driver = webdriver.Chrome(options = chrome_options)
         print(driver)
         driver.get("https://docs.google.com/forms/d/e/1FAIpQLSf7LSpENMM8nB_YBcDUqgUQFbYNrGwKyIUndz54Fp-U-8ZdwA/viewform?usp=sf_link")
         # driver.get("https://docs.google.com/forms/d/1sjD-62V_m5B6PAf28PiX7K17U8XNyo8vGAjbtiRZ9oI")
