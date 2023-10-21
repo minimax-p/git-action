@@ -100,11 +100,13 @@ def main():
             box.send_keys(student_id)
         
         # Kind of attendance
-        attendance = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[1]/label/div/div[1]/div/div[3]/div')
+        attendance = driver.find_element(By.XPATH, "(//div[@class='vd3tt']//div)[1]")
+        # attendance = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[1]/label/div/div[1]/div/div[3]/div')
         attendance.click()
         
         # Duration of attendance
-        duration = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/span/div/div[1]/label/div/div[1]/div/div[3]/div')
+        duration = driver.find_element(By.XPATH, "//div[@id='i31']/div[3]/div[1]")
+        # duration = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/span/div/div[1]/label/div/div[1]/div/div[3]/div')
         duration.click()
         
         # Click on submit button
