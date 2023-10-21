@@ -7,7 +7,7 @@ from datetime import datetime as dt
 # import config as env
 from general import GeneralUtil as gen_util
 from selenium import webdriver
-
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 # level = logging.INFO
