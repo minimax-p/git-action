@@ -1,0 +1,5 @@
+pandas 
+pygsheets 
+selenium 
+IPython
+typing_extensions
